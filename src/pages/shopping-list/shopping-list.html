@@ -12,13 +12,13 @@
     <ion-list>
       <ion-item>
         <ion-label floating>Name</ion-label>
-        <ion-input type="text" name="ingredientName"></ion-input>
+        <ion-input type="text" name="ingredientName" ngModel required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Amount</ion-label>
-        <ion-input type="number" name="amount"></ion-input>
+        <ion-input type="number" name="amount" ngModel required></ion-input>
       </ion-item>
     </ion-list>
-    <button ion-button type="submit" block>Add Item</button>
+    <button ion-button type="submit" block [disabled]="!f.valid">Add Item</button>
   </form>
 </ion-content>
