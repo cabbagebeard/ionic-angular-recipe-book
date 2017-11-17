@@ -7,5 +7,7 @@ export class ShoppingListService {
     this.ingredients.push(new Ingredient(name, amount));
   }
 
-  
+  addItems(items: Ingredient[]) {
+    this.ingredients.push(...items);
+  }
 }
