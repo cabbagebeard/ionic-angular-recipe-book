@@ -7,6 +7,7 @@ import {NavParams} from "ionic-angular";
 })
 export class EditRecipePage implements OnInit {
   mode = 'New';
+  difficulties = ['Easy', 'Medium', 'Hard'];
 
   constructor (private navParams: NavParams) {}
 
