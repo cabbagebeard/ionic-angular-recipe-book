@@ -8,7 +8,7 @@
 
 
 <ion-content padding>
-  <form [formGroup]="recipeForm">
+  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
     <ion-list>
       <ion-item>
         <ion-label floating>Title</ion-label>
