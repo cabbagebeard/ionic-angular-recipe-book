@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActionSheetController, AlertController, NavParams} from "ionic-angular";
+import {ActionSheetController, AlertController, NavParams, ToastController} from "ionic-angular";
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -13,7 +13,8 @@ export class EditRecipePage implements OnInit {
 
   constructor (private navParams: NavParams,
                private actionSheetController: ActionSheetController,
-               private alertCtrl: AlertController) {}
+               private alertCtrl: AlertController,
+               private toastCtrl: ToastController) {}
 
   ngOnInit() {
     this.mode = this.navParams.get('mode');
@@ -73,6 +74,11 @@ export class EditRecipePage implements OnInit {
           text: 'Add',
           handler: data => {
             if (data.name.trim() == '' || data.name == null) {
+              const toast = this.toastCtrl.create({
+                message: 'Please enter a valid value',
+                duration: 1500
+              });
+              toast.present();
               return;
             }
             (<FormArray>this.recipeForm.get('ingredients')).push(new FormControl(data.name, Validators.required));
