@@ -45,6 +45,11 @@ export class EditRecipePage implements OnInit {
             for (let i = len - 1; i >= 0; i--) {
               fArray.removeAt(i);
             }
+            const toast = this.toastCtrl.create({
+              message: 'All ingredients were deleted',
+              duration: 1500
+            });
+            toast.present();
           }
         }
       },
